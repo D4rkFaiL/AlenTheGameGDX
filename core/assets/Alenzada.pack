@@ -1,0 +1,159 @@
+
+Alenzada.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+RataoFire
+  rotate: false
+  xy: 1, 293
+  size: 2112, 93
+  orig: 2112, 93
+  offset: 0, 0
+  index: -1
+RataoRabada
+  rotate: false
+  xy: 1, 198
+  size: 2112, 93
+  orig: 2112, 93
+  offset: 0, 0
+  index: -1
+RataoBatida
+  rotate: false
+  xy: 1, 103
+  size: 1728, 93
+  orig: 1728, 93
+  offset: 0, 0
+  index: -1
+RataoCharge
+  rotate: false
+  xy: 1, 8
+  size: 1536, 93
+  orig: 1536, 93
+  offset: 0, 0
+  index: -1
+RataoIdle
+  rotate: false
+  xy: 1731, 103
+  size: 768, 93
+  orig: 768, 93
+  offset: 0, 0
+  index: -1
+RataoCorrida
+  rotate: false
+  xy: 1539, 8
+  size: 960, 93
+  orig: 960, 93
+  offset: 0, 0
+  index: -1
+BatmanVoando
+  rotate: false
+  xy: 2115, 361
+  size: 252, 25
+  orig: 252, 25
+  offset: 0, 0
+  index: -1
+Plant_atk
+  rotate: false
+  xy: 2115, 260
+  size: 156, 99
+  orig: 156, 99
+  offset: 0, 0
+  index: -1
+AlenAndadaArma
+  rotate: false
+  xy: 2115, 230
+  size: 174, 28
+  orig: 174, 28
+  offset: 0, 0
+  index: -1
+AlenIdleArma
+  rotate: false
+  xy: 2115, 201
+  size: 174, 27
+  orig: 174, 27
+  offset: 0, 0
+  index: -1
+AlenSpriteSheet
+  rotate: false
+  xy: 2369, 358
+  size: 126, 28
+  orig: 126, 28
+  offset: 0, 0
+  index: -1
+CanhaoAtirandoCima
+  rotate: false
+  xy: 2273, 335
+  size: 52, 24
+  orig: 52, 24
+  offset: 0, 0
+  index: -1
+AlenIdleFINAL
+  rotate: false
+  xy: 2327, 329
+  size: 138, 27
+  orig: 138, 27
+  offset: 0, 0
+  index: -1
+AlenPulandinho
+  rotate: false
+  xy: 2273, 298
+  size: 112, 29
+  orig: 112, 29
+  offset: 0, 0
+  index: -1
+TiroCanhao
+  rotate: false
+  xy: 2273, 276
+  size: 110, 20
+  orig: 110, 20
+  offset: 0, 0
+  index: -1
+RatinhoAndando
+  rotate: false
+  xy: 2273, 263
+  size: 124, 11
+  orig: 124, 11
+  offset: 0, 0
+  index: -1
+TIROALEN
+  rotate: false
+  xy: 2273, 329
+  size: 30, 4
+  orig: 30, 4
+  offset: 0, 0
+  index: -1
+SlimeAndada
+  rotate: false
+  xy: 2387, 316
+  size: 45, 11
+  orig: 45, 11
+  offset: 0, 0
+  index: -1
+itens
+  rotate: false
+  xy: 2387, 298
+  size: 34, 16
+  orig: 34, 16
+  offset: 0, 0
+  index: -1
+pedradecrack
+  rotate: false
+  xy: 2385, 282
+  size: 30, 14
+  orig: 30, 14
+  offset: 0, 0
+  index: -1
+TiroPlanta
+  rotate: false
+  xy: 1, 1
+  size: 14, 5
+  orig: 14, 5
+  offset: 0, 0
+  index: -1
+TirodoCanhao
+  rotate: false
+  xy: 17, 1
+  size: 5, 5
+  orig: 5, 5
+  offset: 0, 0
+  index: -1

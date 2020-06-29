@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.3.3" orientation="orthogonal" renderorder="right-down" width="36" height="54" tilewidth="16" tileheight="16" infinite="0" nextlayerid="15" nextobjectid="23">
+ <tileset firstgid="1" source="ChaoPedra.tsx"/>
+ <layer id="4" name="Background Layer" width="36" height="54" opacity="0.69">
+  <data encoding="base64" compression="zlib">
+   eJzt0TEKgEAMRcGUekvvfwqxELYKrpAlCzOQ/pEfsYdjuMwZcdXXfO95rGia6XlVds32rNqtiz97VdKT07OXbv/Rk+vWAwAAAABA7gaZWgLd
+  </data>
+ </layer>
+ <layer id="3" name="Graphic Layer" width="36" height="54">
+  <data encoding="base64" compression="zlib">
+   eJztl+1twyAQhq9u5NqtEqn9YfPHUkfxKB4lo3gURskoPQS0lIYPw+FYFUivuEQcPHo5EhgB1gEAOoDlgv1FxisYrVNjqGWtuYxSUTyd7P+oxzxIbCV4cphK8aRyleRJ8SiH52j1LMacUS9GP2R6lstjspwDPDH7t5c/sbVE4Y9WyJ8Yvr3rJ+TVfztfLYrhOKZilTf7hP58lvIH5+Y6B+M5hsfHlMtj5mB8c/H4PKHmwb3iLMATy5TL0+AaGHOh5icvqXYoeI54vvRc7Z35nyI8075R8OAeLa7fvQZ+1Vlw3yh4xJjW4U0na9zpj81E5A/vHGoCPDYTBc/R6nmSHjg9SlBu/YieU4mKh8k8SBWT+0XGM2a8AUEyrZWHhkev7+EBIh7feRfn+HuNynMcHiDgYbKmk8UsHsjkofz/iuHpLX97lT/B/btPqqZIHru9GvG7ET9v/N6cx/68hWePVnkqT+WpPKJ9WGNPANfYed8ix508PPo//9Hy8ZR4/9nayoP3gmvOuybw3tnMk3vvcjV9H9vAwyneEQEe7uIZDBn+8Nx7oOd+OJs8GC+DOl+KV+zpzeYpLZNHv8EtDx9y9k1vvgAy73pa
+  </data>
+ </layer>
+ <objectgroup id="2" name="Ground">
+  <object id="1" x="46.5455" y="736" width="498.455" height="64"/>
+  <object id="2" x="544" y="-14" width="32" height="814"/>
+  <object id="3" x="16" y="-18.6667" width="32" height="818.667"/>
+  <object id="4" x="15.6364" y="784.091" width="560" height="16"/>
+  <object id="5" x="80" y="480" width="16" height="96"/>
+  <object id="6" x="80" y="-27.3333" width="16" height="603.333"/>
+  <object id="7" x="144" y="-15.3333" width="368" height="591.333"/>
+ </objectgroup>
+ <objectgroup id="5" name="Coins"/>
+ <objectgroup id="6" name="Bricks"/>
+ <objectgroup id="7" name="Goombas"/>
+ <objectgroup id="8" name="Ratao"/>
+ <objectgroup id="9" name="Slime"/>
+ <objectgroup id="10" name="Repinba">
+  <object id="11" x="64" y="576" width="16" height="160"/>
+  <object id="12" x="512" y="576" width="16" height="160"/>
+ </objectgroup>
+ <objectgroup id="11" name="Morte">
+  <object id="8" x="46.625" y="782.5" width="34.625" height="13.125"/>
+  <object id="9" x="511.273" y="783" width="34.0909" height="4.90909"/>
+ </objectgroup>
+ <objectgroup id="12" name="Boss">
+  <object id="10" x="432" y="720" width="16" height="16"/>
+ </objectgroup>
+ <objectgroup id="14" name="Pedras">
+  <object id="13" x="144" y="592" width="16" height="16"/>
+  <object id="14" x="432" y="592" width="16" height="16"/>
+  <object id="15" x="384" y="592" width="16" height="16"/>
+  <object id="16" x="336" y="592" width="16" height="16"/>
+  <object id="17" x="192" y="592" width="16" height="16"/>
+  <object id="18" x="288" y="592" width="16" height="16"/>
+  <object id="19" x="240" y="592" width="16" height="16"/>
+  <object id="21" x="96" y="592" width="16" height="16"/>
+  <object id="22" x="480" y="592" width="16" height="16"/>
+ </objectgroup>
+</map>
