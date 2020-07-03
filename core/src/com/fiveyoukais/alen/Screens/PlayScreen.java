@@ -25,6 +25,9 @@ import com.fiveyoukais.alen.Sprites.Items.Item;
 import com.fiveyoukais.alen.Sprites.Items.ItemDef;
 import com.fiveyoukais.alen.Sprites.Items.Mushroom;
 import com.fiveyoukais.alen.Tools.B2WorldCreator;
+import com.fiveyoukais.alen.Tools.GerenciarInimigos;
+import com.fiveyoukais.alen.Tools.GerenciarInput;
+import com.fiveyoukais.alen.Tools.GerenciarVitoria;
 import com.fiveyoukais.alen.Tools.WorldContactListener;
 
 import java.util.concurrent.LinkedBlockingDeque;
@@ -66,7 +69,9 @@ public class PlayScreen implements Screen{
 
     private Texture texture;
     private Sprite sprite;
-
+    private GerenciarInput gerenciarInput;
+    private GerenciarVitoria gerenciarVitoria;
+    private GerenciarInimigos gerenciarInimigos;
     public PlayScreen(Alen game){
 
         Alen.cabo = false;
@@ -104,6 +109,17 @@ public class PlayScreen implements Screen{
         items = new Array<Item>();
         itemsToSpawn = new LinkedBlockingDeque<ItemDef>();
 
+        gerenciarInput = new GerenciarInput();
+        gerenciarInput.start();
+        gerenciarInput.setName("GerenciarInputs");
+
+        gerenciarVitoria = new GerenciarVitoria();
+        gerenciarVitoria.start();
+        gerenciarVitoria.setName("GerenciarVitoria");
+
+        gerenciarInimigos = new GerenciarInimigos();
+        gerenciarInimigos.start();
+        gerenciarInimigos.setName("GerenciarInimigos");
     }
 
     public void spawnItem(ItemDef idef){
@@ -130,43 +146,14 @@ public class PlayScreen implements Screen{
 
     public void update(float dt){
 
-
-        handleInput(dt);
+        gerenciarInput.run(player,dt);
         hadleSpawningItems();
 
         world.step(1/60f,6,2);
 
         player.update(dt);
 
-        for(Enemy enemy: creator.getGoombas()) {
-            enemy.update(dt);
-            if(enemy.getX() < player.getX() + 224/Alen.PPM)
-                enemy.b2body.setActive(true);
-        }
-
-        for(Enemy enemy: creator.getRatao()) {
-            enemy.update(dt);
-            if(enemy.getX() < player.getX() + 224/Alen.PPM)
-                enemy.b2body.setActive(true);
-        }
-
-        for(Enemy enemy: creator.getSlime()) {
-            enemy.update(dt);
-            if(enemy.getX() < player.getX() + 224/Alen.PPM)
-                enemy.b2body.setActive(true);
-        }
-
-        for(Enemy enemy: creator.getBoss()) {
-            enemy.update(dt);
-            if(enemy.getX() < player.getX() + 224/Alen.PPM)
-                enemy.b2body.setActive(true);
-        }
-
-        for(Enemy enemy: creator.getPedras()) {
-            enemy.update(dt);
-            if(enemy.getX() < player.getX() + 224/Alen.PPM)
-                enemy.b2body.setActive(true);
-        }
+        gerenciarInimigos.run(dt,creator,player);
 
         for(Item item: items)
             item.update(dt);
@@ -181,28 +168,6 @@ public class PlayScreen implements Screen{
         gamecam.update();
         renderer.setView(gamecam);
         Gdx.graphics.setTitle("FPS: "+ Gdx.graphics.getFramesPerSecond());
-    }
-
-    public void handleInput(float dt){
-        if(player.currentstate != AlenP.State.Dead) {
-
-            if (Gdx.input.isKeyJustPressed(com.badlogic.gdx.Input.Keys.Z) && player.getGun())
-                player.fire(dt);
-
-            if ((Gdx.input.isKeyJustPressed(com.badlogic.gdx.Input.Keys.DPAD_UP) ||
-                    Gdx.input.isKeyJustPressed(com.badlogic.gdx.Input.Keys.W)) && !player.getPulo()) {
-                player.setPulo(true);
-                player.b2body.applyLinearImpulse(new Vector2(0, 4f), player.b2body.getWorldCenter(), true);
-            }
-
-            if ((Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.DPAD_LEFT) && player.b2body.getLinearVelocity().x >= -2) ||
-                    (Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.A) && player.b2body.getLinearVelocity().x >= -2))
-                player.b2body.applyLinearImpulse(new Vector2(-0.1f, 0), player.b2body.getWorldCenter(), true);
-
-            if ((Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.DPAD_RIGHT) && player.b2body.getLinearVelocity().x <= 2) ||
-                    (Gdx.input.isKeyPressed(com.badlogic.gdx.Input.Keys.D) && player.b2body.getLinearVelocity().x <= 2))
-                player.b2body.applyLinearImpulse(new Vector2(0.1f, 0), player.b2body.getWorldCenter(), true);
-        }
     }
 
     @Override
@@ -231,9 +196,8 @@ public class PlayScreen implements Screen{
         sprite.setPosition(gamecam.position.x + 42/Alen.PPM,gamecam.position.y + 0.845f);
         sprite.setSize(player.vida,0.1f);
         sprite.draw(game.batch);
-
-
         player.draw(game.batch);
+
         for(Enemy enemy: creator.getGoombas())
             enemy.draw(game.batch);
 
@@ -273,11 +237,7 @@ public class PlayScreen implements Screen{
     }
 
     public boolean gameOver(){
-        if((player.currentstate == AlenP.State.Dead && player.getStatetimer()>1.5f) || Alen.cabo){
-            music.stop();
-            return true;
-        }
-        return false;
+        return gerenciarVitoria.run(player);
     }
 
     @Override

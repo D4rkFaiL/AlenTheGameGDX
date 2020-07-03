@@ -16,6 +16,8 @@ import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.fiveyoukais.alen.Alen;
+import com.fiveyoukais.alen.Tools.ContagemTempo;
+
 
 
 /**
@@ -26,16 +28,14 @@ public class HUD implements Disposable{
     public Stage stage;
     private Viewport viewport;
 
-    private int worldtimer;
-    private float timecount;
+    public static int worldtimer;
+    public static float timecount;
     private static int score;
 
     Label countdownlabel;
     static Label scorelabel;
-    Label timelabel;
-    Label levellabel;
-    Label worldlabel;
-    Label alenlabel;
+
+    ContagemTempo contagemTempo;
 
     public HUD(SpriteBatch sb){
 
@@ -60,15 +60,16 @@ public class HUD implements Disposable{
 
         stage.addActor(table);
 
+        contagemTempo = new ContagemTempo();
+        contagemTempo.start();
+        contagemTempo.setName("Tempo");
+
     }
 
     public void update(float dt){
         timecount += dt;
-        if (timecount >= 1){
-            worldtimer--;
-            countdownlabel.setText(String.format("%03d",worldtimer));
-            timecount = 0;
-        }
+        contagemTempo.run();
+        countdownlabel.setText(String.format("%03d",worldtimer));
     }
 
     public static void addScore(int value){

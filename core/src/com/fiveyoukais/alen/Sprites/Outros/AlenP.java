@@ -55,7 +55,7 @@ public class AlenP extends Sprite{
 
     private float statetimer;
     private float fireRate = 0;
-    private float fireRateValue = 1.5f;
+    private float fireRateValue = 12f;
     private float tempo;
     public static float vida = 0f;
 
