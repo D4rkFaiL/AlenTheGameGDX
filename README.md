@@ -1,2 +1,3 @@
-# AlenTheGameGDX
-é o jogo do alen,aka meu smaug 3
+# Alen The Game!
+
+<h2> Jogo do estilo platformer desenvolvido em Java com o framework libGDX </h2>
